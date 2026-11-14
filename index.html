@@ -270,7 +270,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
     <h2>관극 기록 추가</h2>
     <div class="form">
       <div class="date-wrap" id="dateWrap">
-        <label for="fDateBtn">관극 날짜 (9/22 ~ 11/29)</label>
+        <label for="fDateBtn">관극 날짜 (9/16 ~ 11/29)</label>
         <input id="fDate" type="hidden">
         <button type="button" class="date-btn" id="fDateBtn">
           <span id="fDateLabel">날짜 선택</span>
@@ -374,7 +374,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
 
 <script>
 const MAX = 7;
-const MIN_DATE = "2026-09-22";
+const MIN_DATE = "2026-09-16";
 const MAX_DATE = "2026-11-29";
 const HOLIDAYS = {
   "2026-09-24": "추석 연휴",
@@ -478,7 +478,7 @@ function populateValidDateSelect(selEl, selectedStr) {
 
 const t = new Date();
 const todayStr = formatDateStr(t.getFullYear(), t.getMonth() + 1, t.getDate());
-let initialDate = isValidPlayDate(todayStr) ? todayStr : "2026-10-09";
+let initialDate = isValidPlayDate(todayStr) ? todayStr : MIN_DATE;
 let calMonth = Number(initialDate.split("-")[1]);
 
 function setSelectedDate(str) {
