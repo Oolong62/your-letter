@@ -134,7 +134,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
 .save-img-btn:hover{filter:brightness(1.08)}
 .chk{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--ink);margin:0;cursor:pointer}
 .chk input{width:20px;height:20px;accent-color:var(--indigo)}
-.dbl{font-size:11px;background:var(--gold);color:#2d2308;border-radius:99px;padding:0 7px;margin-left:4px;font-weight:700}
+.trp{font-size:11px;background:var(--gold);color:#2d2308;border-radius:99px;padding:0 7px;margin-left:4px;font-weight:700}
 .used-tag{font-size:11px;background:var(--soft);color:var(--indigo2);border:1px solid var(--indigo2);border-radius:99px;padding:0 7px;margin-left:4px;font-weight:600}
 .small{background:none;color:var(--sub);padding:4px 6px;font-size:12px;text-decoration:underline}
 .small.edit{color:var(--indigo2)}
@@ -294,7 +294,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
         <select id="fUseBenefit"></select>
       </div>
       <div class="full"><label for="fNote">기록 메모 (선택)</label><input id="fNote" placeholder="캐스팅이나 간단한 메모"></div>
-      <div class="full"><label class="chk"><input type="checkbox" id="fDouble"> 더블 적립 (도장 2개 찍기)</label></div>
+      <div class="full"><label class="chk"><input type="checkbox" id="fTriple"> 트리플 적립 (도장 3개 찍기)</label></div>
       <div class="full"><button type="button" class="primary" id="add">관극 기록 추가하고 도장 찍기</button></div>
     </div>
     <p class="note">MD부스 운영시간: 공연 시작 1시간 전 ~ 10분 전, 공연 종료 후 10분 (유료 티켓 1매당 1회 적립)</p>
@@ -349,7 +349,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
         <input id="eNote" placeholder="캐스팅이나 간단한 메모">
       </div>
       <div>
-        <label class="chk"><input type="checkbox" id="eDouble"> 더블 적립 (도장 2개 찍기)</label>
+        <label class="chk"><input type="checkbox" id="eTriple"> 트리플 적립 (도장 3개 찍기)</label>
       </div>
     </div>
     <div class="modal-btns">
@@ -386,7 +386,6 @@ const HOLIDAYS = {
 };
 const DOW_KO = ["일", "월", "화", "수", "목", "금", "토"];
 
-// 실제 도장판의 편지봉투 색감과 도장 아이콘(책, 스쿠터, 토끼, 다리, 편지) 매칭
 const STAMP_THEMES = [
   {icon: "📚", bg: "#dbece8", bd: "#8bb8ae"},
   {icon: "🛵", bg: "#dcebf7", bd: "#87b4db"},
@@ -574,7 +573,7 @@ function getInventory() {
   return inv;
 }
 
-// 각 도장 칸별 짧은 날짜(M.D 또는 MM.DD) 추출
+// 각 도장 칸별 짧은 날짜(MM.DD) 추출
 function getStampDates(board) {
   const dates = [];
   if (!board || !Array.isArray(board.visits)) return dates;
@@ -685,14 +684,18 @@ function render() {
   $("boards").innerHTML = [...state.boards].reverse().map(b => {
     const c = cnt(b);
     const gotCnt = MILES.filter(m => c >= m.n).length;
-    const log = b.visits.map((v, i) =>
-      `<li>
-        <span>${i + 1}회${v.s === 2 ? '<em class="dbl">더블 +2</em>' : ""}${v.usedBenefit ? `<em class="used-tag">${esc(v.usedBenefit)} 사용</em>` : ""} · ${esc(v.date)}${v.round ? " · " + esc(v.round) : ""}${v.note ? " — " + esc(v.note) : ""}</span>
+    const log = b.visits.map((v, i) => {
+      const stampBadge = v.s > 1
+        ? `<em class="trp">${v.s === 3 ? "트리플 +3" : `+${v.s}`}</em>`
+        : "";
+      return `<li>
+        <span>${i + 1}회${stampBadge}${v.usedBenefit ? `<em class="used-tag">${esc(v.usedBenefit)} 사용</em>` : ""} · ${esc(v.date)}${v.round ? " · " + esc(v.round) : ""}${v.note ? " — " + esc(v.note) : ""}</span>
         <span class="log-btns">
           <button type="button" class="small edit" data-edit="${b.id}:${i}">수정</button>
           <button type="button" class="small" data-del="${b.id}:${i}">삭제</button>
         </span>
-      </li>`).join("");
+      </li>`;
+    }).join("");
 
     const statusPills = MILES.map(m => {
       const done = c >= m.n;
@@ -749,8 +752,8 @@ $("add").onclick = async () => {
     await showModal("관극 날짜를 먼저 선택해 주세요.", {confirmMode: false});
     return;
   }
-  const dbl = $("fDouble").checked;
-  const s = Math.min(dbl ? 2 : 1, MAX - cnt(cur));
+  const trp = $("fTriple").checked;
+  const s = Math.min(trp ? 3 : 1, MAX - cnt(cur));
   const usedBenefit = $("fUseBenefit").value;
   cur.visits.push({
     date,
@@ -761,7 +764,7 @@ $("add").onclick = async () => {
   });
   if (cnt(cur) >= MAX) cur.ended = true;
   $("fRound").value = $("fNote").value = "";
-  $("fDouble").checked = false;
+  $("fTriple").checked = false;
   $("fUseBenefit").value = "";
   save(); render();
 };
@@ -778,7 +781,7 @@ function openEditModal(boardId, visitIdx) {
   populateValidDateSelect($("eDate"), v.date);
   $("eRound").value = v.round || "";
   $("eNote").value = v.note || "";
-  $("eDouble").checked = Number(v.s) === 2;
+  $("eTriple").checked = Number(v.s) > 1;
 
   const inv = getInventory();
   let opts = `<option value="">사용 안 함</option>`;
@@ -817,7 +820,7 @@ $("editSave").onclick = async () => {
   }
 
   const otherStamps = b.visits.reduce((sum, item, idx) => idx === visitIdx ? sum : sum + (Number(item.s) || 1), 0);
-  const wantStamps = $("eDouble").checked ? 2 : 1;
+  const wantStamps = $("eTriple").checked ? 3 : 1;
   const finalStamps = Math.max(1, Math.min(wantStamps, MAX - otherStamps));
 
   b.visits[visitIdx] = {
