@@ -99,7 +99,7 @@ h2{margin:0 0 14px;font-size:19px}
   color:#1f2937;font-weight:700;animation:pop .35s;box-shadow:0 3px 10px rgba(0,0,0,.07);
 }
 .st.on.ms{box-shadow:0 0 0 2px var(--gold), 0 4px 12px rgba(229,185,92,.25)}
-.st .st-icon{font-size:18px;line-height:1.1}
+.st .st-icon{font-size:19px;line-height:1.1}
 .st .st-date{font-size:11px;font-weight:700;letter-spacing:-0.02em;margin-top:3px;color:#1e293b}
 .st i{position:absolute;bottom:-20px;font-style:normal;font-size:11px;color:var(--sub);white-space:nowrap;font-weight:600}
 @keyframes pop{from{transform:scale(.65)}to{transform:scale(1)}}
@@ -144,7 +144,7 @@ button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:mani
 .board .meta{font-size:13px;color:var(--sub);margin:0 0 10px}
 .board .stamps{margin:0 0 4px;gap:6px}
 .board .st{font-size:11px;aspect-ratio:1}
-.board .st .st-icon{font-size:14px}
+.board .st .st-icon{font-size:15px}
 .board .st .st-date{font-size:10px}
 .board-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
 .badge-pill{
@@ -386,14 +386,16 @@ const HOLIDAYS = {
 };
 const DOW_KO = ["일", "월", "화", "수", "목", "금", "토"];
 
+// 실제 도장판 7개 도장 아이콘 & 편지봉투 색감 매칭
+// 1: 책(민트), 2: 스쿠터(하늘), 3: 토끼(베이지), 4: 다리(연보라), 5: 과녁(체크베이지), 6: 반딧불이 유리병(스카이블루), 7: 기차(민트그린)
 const STAMP_THEMES = [
   {icon: "📚", bg: "#dbece8", bd: "#8bb8ae"},
   {icon: "🛵", bg: "#dcebf7", bd: "#87b4db"},
   {icon: "🐰", bg: "#f3e3d3", bd: "#cca785"},
   {icon: "🌉", bg: "#f1dfec", bd: "#c799ba"},
-  {icon: "✉️", bg: "#f2e7dc", bd: "#c4ab92"},
-  {icon: "💌", bg: "#dce8f5", bd: "#8caed4"},
-  {icon: "🌿", bg: "#dcece5", bd: "#88b8a4"}
+  {icon: "🎯", bg: "#efe5d8", bd: "#bfa68a"},
+  {icon: "🫙", bg: "#dbe7f5", bd: "#8aaad1"},
+  {icon: "🚄", bg: "#d9ece4", bd: "#84b5a0"}
 ];
 
 const MILES = [
