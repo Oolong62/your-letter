@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>뮤지컬 〈연의 편지〉 도장판</title>
+<style>
+:root{
+  --bg:#f4f5f9; --card:#ffffff; --ink:#222c42; --sub:#68748c; --line:#dde2ed;
+  --indigo:#566fa3; --indigo2:#6f89bd; --gold:#e5b95c; --soft:#edf1f9; --empty:#f8f9fc;
+  --note-line:#cbd5e1; --note-margin:#e89b9b;
+  --danger:#c94a4a; --ok:#2f7d5b; --sat:#2563eb; --sun:#dc2626;
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#12151e; --card:#191e2b; --ink:#eef1f8; --sub:#94a0b8; --line:#293145;
+    --soft:#22293b; --empty:#1d2332; --indigo2:#7f9ad1; --note-line:#2c364d; --note-margin:#7a4348;
+    --danger:#e06c6c; --ok:#52b788; --sat:#60a5fa; --sun:#f87171;
+  }
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Pretendard","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:884px;margin:0 auto;padding:8px 16px 48px}
+
+/* 표지 감성 헤더 */
+header{
+  background:radial-gradient(circle at 82% 72%, rgba(255,235,160,.26) 0%, transparent 45%),
+             linear-gradient(135deg,#50689c,#748ec2);
+  color:#fff;border-radius:22px;padding:28px;margin-bottom:16px;position:relative;overflow:hidden;
+  border:1px solid rgba(255,255,255,.15);
+}
+header::before{
+  content:"";position:absolute;inset:8px;border:1.5px dashed rgba(255,255,255,.32);border-radius:16px;pointer-events:none;
+}
+header::after{
+  content:"✦ · ˚ ✧ ✉️";position:absolute;bottom:20px;right:26px;font-size:15px;letter-spacing:4px;opacity:.85;
+}
+header small{letter-spacing:.12em;font-size:12px;opacity:.88;display:inline-flex;align-items:center;gap:6px}
+header h1{margin:6px 0 0;font-size:34px;line-height:1.2;font-family:"Noto Serif KR",Georgia,serif;letter-spacing:.02em}
+header .sub-title{margin:6px 0 0;font-size:14px;font-style:italic;opacity:.85;font-family:Georgia,serif}
+header .quote{margin:12px 0 0;font-size:13px;opacity:.92;letter-spacing:.02em}
+
+.card{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:20px;margin-bottom:16px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px}
+.stats .card{margin:0;padding:16px 18px}
+.stats span{font-size:13px;color:var(--sub)}
+.stats b{display:block;font-size:26px}
+h2{margin:0 0 14px;font-size:19px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.top-btns{display:flex;gap:6px;flex-wrap:wrap}
+.tag{font-size:12px;background:var(--soft);color:var(--indigo2);padding:3px 10px;border-radius:99px;white-space:nowrap;font-weight:600}
+
+/* 보유 혜택 현황 그리드 (2열) */
+.inv-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.inv-box{
+  background:var(--empty);border:1px solid var(--line);border-radius:14px;padding:14px 16px;
+  display:flex;flex-direction:column;justify-content:space-between;
+}
+.inv-box span{display:block;font-size:13px;color:var(--sub);margin-bottom:4px;font-weight:600}
+.inv-box b{font-size:22px;color:var(--ink)}
+.inv-box small{display:block;font-size:11px;color:var(--sub);margin-top:4px}
+.inv-box.has{border-color:var(--indigo2);background:var(--soft)}
+.inv-row{display:flex;align-items:center;justify-content:space-between;gap:6px}
+.inv-ctrl{display:flex;align-items:center;gap:5px}
+.inv-btn{
+  width:28px;height:28px;border-radius:8px;border:1px solid var(--line);
+  background:var(--card);color:var(--ink);font-weight:700;font-size:15px;
+  display:grid;place-items:center;padding:0;line-height:1;transition:.12s;
+}
+.inv-btn:hover:not(:disabled){border-color:var(--indigo2);background:var(--indigo);color:#fff}
+.inv-btn:disabled{opacity:.35;cursor:not-allowed}
+
+/* 줄노트 감성 도장판 영역 (7칸) */
+.note-sheet{
+  position:relative;
+  background-color:var(--empty);
+  background-image:repeating-linear-gradient(to bottom, transparent 0px, transparent 27px, var(--note-line) 28px);
+  border:1px solid var(--line);border-radius:16px;padding:18px 18px 26px 34px;margin:8px 0 14px;
+  overflow:hidden;
+}
+.note-sheet::before{
+  content:"";position:absolute;top:0;bottom:0;left:22px;width:1.5px;background:var(--note-margin);opacity:.75;
+}
+.note-caption{
+  display:flex;justify-content:space-between;font-size:12px;color:var(--sub);margin-bottom:12px;font-weight:500;
+}
+.stamps{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+.st{
+  aspect-ratio:1/1.06;border-radius:14px;border:1.5px dashed var(--line);background:rgba(255,255,255,.72);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:13px;color:var(--sub);position:relative;line-height:1.15;padding:4px;
+}
+@media (prefers-color-scheme:dark){
+  .st{background:rgba(25,30,43,.78)}
+}
+.st.ms{border:2px solid var(--gold);border-style:solid}
+.st.on{
+  background:var(--env-bg, #566fa3);border-color:var(--env-bd, #566fa3);
+  color:#1f2937;font-weight:700;animation:pop .35s;box-shadow:0 3px 10px rgba(0,0,0,.07);
+}
+.st.on.ms{box-shadow:0 0 0 2px var(--gold), 0 4px 12px rgba(229,185,92,.25)}
+.st .st-icon{font-size:18px;line-height:1.1}
+.st .st-date{font-size:11px;font-weight:700;letter-spacing:-0.02em;margin-top:3px;color:#1e293b}
+.st i{position:absolute;bottom:-20px;font-style:normal;font-size:11px;color:var(--sub);white-space:nowrap;font-weight:600}
+@keyframes pop{from{transform:scale(.65)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.st.on{animation:none}}
+
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:14px}
+.bar div{height:100%;background:var(--gold);transition:width .3s}
+.ms-list{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px}
+.ms-item{border:1px solid var(--line);background:var(--empty);border-radius:12px;padding:12px 14px;font-size:14px;display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.ms-item.done{border-color:var(--gold);background:var(--soft)}
+.ms-item small,.note{color:var(--sub);font-size:13px}
+.ms-status{font-size:12px;font-weight:700;color:var(--sub)}
+.ms-item.done .ms-status{color:var(--ok)}
+.note{margin:12px 0 0}
+
+.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form .full{grid-column:1/-1}
+label{display:block;font-size:13px;color:var(--sub);margin-bottom:4px}
+input, select{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:12px;padding:11px 14px}
+input:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button{font:inherit;cursor:pointer;border:0;border-radius:12px;touch-action:manipulation}
+.primary{background:var(--indigo);color:#fff;padding:12px 18px;font-weight:700;width:100%}
+.primary:hover{filter:brightness(1.08)}
+.primary:disabled{opacity:.5;cursor:not-allowed}
+.ghost{background:var(--soft);color:var(--ink);padding:8px 14px;font-weight:600;font-size:13px}
+.ghost:hover{filter:brightness(0.96)}
+.save-img-btn{
+  width:100%;margin-top:16px;padding:13px 18px;font-weight:700;font-size:15px;
+  background:linear-gradient(135deg,#50689c,#748ec2);color:#fff;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.save-img-btn:hover{filter:brightness(1.08)}
+.chk{display:flex;align-items:center;gap:8px;font-size:15px;color:var(--ink);margin:0;cursor:pointer}
+.chk input{width:20px;height:20px;accent-color:var(--indigo)}
+.dbl{font-size:11px;background:var(--gold);color:#2d2308;border-radius:99px;padding:0 7px;margin-left:4px;font-weight:700}
+.used-tag{font-size:11px;background:var(--soft);color:var(--indigo2);border:1px solid var(--indigo2);border-radius:99px;padding:0 7px;margin-left:4px;font-weight:600}
+.small{background:none;color:var(--sub);padding:4px 6px;font-size:12px;text-decoration:underline}
+.small.edit{color:var(--indigo2)}
+.small.danger{color:var(--danger)}
+.board{border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:12px}
+.board.cur{border-color:var(--indigo2)}
+.board .meta{font-size:13px;color:var(--sub);margin:0 0 10px}
+.board .stamps{margin:0 0 4px;gap:6px}
+.board .st{font-size:11px;aspect-ratio:1}
+.board .st .st-icon{font-size:14px}
+.board .st .st-date{font-size:10px}
+.board-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px}
+.badge-pill{
+  font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid var(--line);
+  background:var(--empty);color:var(--sub);font-weight:600;
+}
+.badge-pill.done{background:var(--ok);border-color:var(--ok);color:#fff}
+.board-actions{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:10px}
+.log{list-style:none;margin:8px 0 0;padding:0;font-size:13px}
+.log li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--line)}
+.log-btns{display:flex;align-items:center;gap:2px;flex-shrink:0}
+
+/* 커스텀 날짜 선택기 */
+.date-wrap{position:relative}
+.date-btn{
+  width:100%;text-align:left;background:var(--card);border:1px solid var(--line);
+  border-radius:12px;padding:11px 14px;color:var(--ink);display:flex;justify-content:space-between;align-items:center;
+}
+.date-btn:hover{border-color:var(--indigo2)}
+.cal-pop{
+  position:absolute;top:calc(100% + 6px);left:0;z-index:50;width:310px;
+  background:var(--card);border:1px solid var(--line);border-radius:16px;
+  padding:14px;box-shadow:0 12px 28px rgba(0,0,0,.15);display:none;
+}
+.cal-pop.open{display:block}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cal-head b{font-size:15px}
+.cal-nav{
+  background:var(--soft);color:var(--ink);width:30px;height:30px;border-radius:8px;
+  display:grid;place-items:center;font-weight:700;padding:0;
+}
+.cal-nav:disabled{opacity:.35;cursor:not-allowed}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;text-align:center}
+.cal-dow{font-size:11px;font-weight:700;color:var(--sub);padding:4px 0}
+.cal-dow.sun{color:var(--sun)}
+.cal-dow.sat{color:var(--sat)}
+.cal-day{
+  aspect-ratio:1;border-radius:9px;background:transparent;color:var(--ink);
+  font-size:13px;font-weight:600;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0;position:relative;
+}
+.cal-day.sat{color:var(--sat)}
+.cal-day.sun,.cal-day.hol{color:var(--sun)}
+.cal-day:hover:not(:disabled){background:var(--soft)}
+.cal-day.sel{background:var(--indigo) !important;color:#fff !important}
+.cal-day:disabled{opacity:.28;cursor:not-allowed;text-decoration:line-through}
+.cal-day.out:disabled{text-decoration:none}
+.cal-legend{display:flex;justify-content:space-between;font-size:11px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px solid var(--line)}
+
+/* 모달 공통 & 수정 모달 */
+.modal-backdrop{
+  position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:999;
+  display:none;place-items:center;padding:16px;overflow-y:auto;
+}
+.modal-backdrop.open{display:grid}
+.modal-box{
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  max-width:420px;width:100%;padding:22px;box-shadow:0 16px 36px rgba(0,0,0,.25);
+}
+.modal-msg{margin:0 0 18px;font-size:15px;line-height:1.5;white-space:pre-line;color:var(--ink)}
+.modal-btns{display:flex;gap:8px;justify-content:flex-end}
+.modal-btns button{padding:10px 16px;font-weight:700;font-size:14px}
+.modal-cancel{background:var(--soft);color:var(--ink)}
+.modal-ok{background:var(--indigo);color:#fff}
+.modal-ok.danger{background:var(--danger)}
+
+.edit-form{display:grid;gap:12px;margin:12px 0 18px}
+.edit-form .chk{font-size:14px}
+
+.img-preview-box{max-width:460px;text-align:center}
+.img-preview-box img{
+  width:100%;border-radius:14px;border:1px solid var(--line);
+  margin:10px 0 12px;display:block;
+}
+.img-tip{font-size:12px;color:var(--sub);margin:0 0 14px}
+
+@media (max-width:640px){
+  header h1{font-size:27px}
+  .stats b{font-size:21px}
+  .inv-grid,.ms-list,.form{grid-template-columns:1fr}
+  .stamps{grid-template-columns:repeat(4,1fr);row-gap:26px}
+  .note-sheet{padding:14px 12px 24px 26px}
+  .note-sheet::before{left:16px}
+  .cal-pop{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <small>✦ MUSICAL YOUR LETTER · STAMP CARD</small>
+    <h1>뮤지컬 〈연의 편지〉</h1>
+    <p class="sub-title">your letter</p>
+    <p class="quote">“구석구석 걸어가 보다 다음 편지도 찾아줄래”</p>
+  </header>
+
+  <section class="stats">
+    <div class="card"><span>현재 도장</span><b id="sCur">0 / 7</b></div>
+    <div class="card"><span>다음 혜택까지</span><b id="sNext">-</b></div>
+    <div class="card"><span>등록한 관극</span><b id="sTotal">0회</b></div>
+  </section>
+
+  <section class="card">
+    <h2>보유 혜택 현황</h2>
+    <div class="inv-grid" id="invGrid"></div>
+    <p class="note">도장 개수가 <b>5회(50% 할인권 2매) · 7회(미니 실황 OST)</b>에 도달하면 자동으로 수령 처리되며, <b>- / +</b> 버튼으로 보유 수량을 직접 조정할 수 있어요.</p>
+  </section>
+
+  <section class="card">
+    <div class="top"><h2>진행 중인 편지 도장판</h2><span class="tag" id="curName"></span></div>
+    <div class="note-sheet">
+      <div class="note-caption">
+        <span>구석구석 걸어가 보다</span>
+        <span>다음 편지도 찾아줄래 ✉️</span>
+      </div>
+      <div id="curStamps" class="stamps"></div>
+    </div>
+    <div class="bar"><div id="bar"></div></div>
+    <div class="ms-list" id="msList"></div>
+    <p class="note">유료 관람 1회차부터 발급 및 적립 가능 / 7개를 채우면 카드가 완료되며, 7개 미만으로 종료한 카드는 다시 이어서 적립 가능</p>
+  </section>
+
+  <section class="card">
+    <h2>관극 기록 추가</h2>
+    <div class="form">
+      <div class="date-wrap" id="dateWrap">
+        <label for="fDateBtn">관극 날짜 (9/22 ~ 11/29)</label>
+        <input id="fDate" type="hidden">
+        <button type="button" class="date-btn" id="fDateBtn">
+          <span id="fDateLabel">날짜 선택</span>
+          <span>📅</span>
+        </button>
+        <div class="cal-pop" id="calPop">
+          <div class="cal-head">
+            <button type="button" class="cal-nav" id="calPrev">‹</button>
+            <b id="calTitle">2026년 10월</b>
+            <button type="button" class="cal-nav" id="calNext">›</button>
+          </div>
+          <div class="cal-grid" id="calGrid"></div>
+          <div class="cal-legend">
+            <span><b style="color:var(--sat)">토</b> · <b style="color:var(--sun)">일/공휴일</b> (월요일 휴관)</span>
+          </div>
+        </div>
+      </div>
+      <div><label for="fRound">회차 / 시간 (선택)</label><input id="fRound" placeholder="예: 19:30 / 낮공"></div>
+      <div class="full">
+        <label for="fUseBenefit">이번 관극에 사용한 혜택</label>
+        <select id="fUseBenefit"></select>
+      </div>
+      <div class="full"><label for="fNote">기록 메모 (선택)</label><input id="fNote" placeholder="캐스팅이나 간단한 메모"></div>
+      <div class="full"><label class="chk"><input type="checkbox" id="fDouble"> 더블 적립 (도장 2개 찍기)</label></div>
+      <div class="full"><button type="button" class="primary" id="add">관극 기록 추가하고 도장 찍기</button></div>
+    </div>
+    <p class="note">MD부스 운영시간: 공연 시작 1시간 전 ~ 10분 전, 공연 종료 후 10분 (유료 티켓 1매당 1회 적립)</p>
+  </section>
+
+  <section class="card">
+    <div class="top">
+      <h2 style="margin:0">도장판 관리</h2>
+      <div class="top-btns">
+        <button type="button" class="ghost" id="btnExport">기록 백업</button>
+        <button type="button" class="ghost" id="btnImport">기록 불러오기</button>
+        <button type="button" class="ghost" id="newBoard">새 도장판 시작</button>
+      </div>
+    </div>
+    <input type="file" id="importFile" accept=".json,application/json" style="display:none">
+    <p class="note">기록은 현재 브라우저에 저장돼요. 기기를 옮기거나 데이터를 보호하려면 '기록 백업'을 눌러 파일을 저장해 두세요.</p>
+    <div id="boards"></div>
+    <button type="button" class="save-img-btn" id="btnSaveImg">✦ 도장판 이미지 저장</button>
+  </section>
+</div>
+
+<!-- 확인 모달 -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box">
+    <p class="modal-msg" id="modalMsg"></p>
+    <div class="modal-btns">
+      <button type="button" class="modal-cancel" id="modalCancel">취소</button>
+      <button type="button" class="modal-ok" id="modalOk">확인</button>
+    </div>
+  </div>
+</div>
+
+<!-- 관극 기록 수정 모달 -->
+<div class="modal-backdrop" id="editModalBackdrop">
+  <div class="modal-box">
+    <b style="font-size:17px" id="editModalTitle">관극 기록 수정</b>
+    <div class="edit-form">
+      <div>
+        <label for="eDate">관극 날짜</label>
+        <select id="eDate"></select>
+      </div>
+      <div>
+        <label for="eRound">회차 / 시간 (선택)</label>
+        <input id="eRound" placeholder="예: 19:30 / 낮공">
+      </div>
+      <div>
+        <label for="eUseBenefit">이번 관극에 사용한 혜택</label>
+        <select id="eUseBenefit"></select>
+      </div>
+      <div>
+        <label for="eNote">기록 메모 (선택)</label>
+        <input id="eNote" placeholder="캐스팅이나 간단한 메모">
+      </div>
+      <div>
+        <label class="chk"><input type="checkbox" id="eDouble"> 더블 적립 (도장 2개 찍기)</label>
+      </div>
+    </div>
+    <div class="modal-btns">
+      <button type="button" class="modal-cancel" id="editCancel">취소</button>
+      <button type="button" class="modal-ok" id="editSave">저장하기</button>
+    </div>
+  </div>
+</div>
+
+<!-- 도장판 이미지 미리보기 및 저장 모달 -->
+<div class="modal-backdrop" id="imgModalBackdrop">
+  <div class="modal-box img-preview-box">
+    <b style="font-size:17px">〈연의 편지〉 도장판 이미지</b>
+    <img id="previewImg" alt="도장판 모아보기 이미지">
+    <p class="img-tip">자동 저장이 안 되는 앱에서는 위 이미지를 꾹 눌러 '사진에 저장'을 선택해 주세요.</p>
+    <div class="modal-btns" style="justify-content:center">
+      <button type="button" class="modal-cancel" id="imgModalClose">닫기</button>
+      <a id="imgDownloadLink" class="modal-ok" style="text-decoration:none;padding:10px 16px;border-radius:12px;font-weight:700;font-size:14px" download="yourletter-stamps.png">파일로 다운로드</a>
+    </div>
+  </div>
+</div>
+
+<script>
+const MAX = 7;
+const MIN_DATE = "2026-09-22";
+const MAX_DATE = "2026-11-29";
+const HOLIDAYS = {
+  "2026-09-24": "추석 연휴",
+  "2026-09-25": "추석",
+  "2026-09-26": "추석 연휴",
+  "2026-10-03": "개천절",
+  "2026-10-05": "대체공휴일",
+  "2026-10-09": "한글날"
+};
+const DOW_KO = ["일", "월", "화", "수", "목", "금", "토"];
+
+// 실제 도장판의 편지봉투 색감과 도장 아이콘(책, 스쿠터, 토끼, 다리, 편지) 매칭
+const STAMP_THEMES = [
+  {icon: "📚", bg: "#dbece8", bd: "#8bb8ae"},
+  {icon: "🛵", bg: "#dcebf7", bd: "#87b4db"},
+  {icon: "🐰", bg: "#f3e3d3", bd: "#cca785"},
+  {icon: "🌉", bg: "#f1dfec", bd: "#c799ba"},
+  {icon: "✉️", bg: "#f2e7dc", bd: "#c4ab92"},
+  {icon: "💌", bg: "#dce8f5", bd: "#8caed4"},
+  {icon: "🌿", bg: "#dcece5", bd: "#88b8a4"}
+];
+
+const MILES = [
+  {n: 5, t: "50% 할인권 2매", s: "중간 혜택 (2매 지급)", l: "50% 2매"},
+  {n: 7, t: "미니 실황 OST", s: "최종 혜택", l: "미니 OST"}
+];
+
+const KEY = "yourletter-stamp-card-v1";
+let state;
+try {
+  state = JSON.parse(localStorage.getItem(KEY));
+} catch (e) {}
+if (!state || !Array.isArray(state.boards) || state.boards.length === 0) {
+  state = {boards: [{id: 1, visits: [], ended: false}], manualAdj: {}};
+}
+if (!state.manualAdj || typeof state.manualAdj !== "object") {
+  state.manualAdj = {};
+}
+state.boards.forEach((b, idx) => {
+  if (!b.id) b.id = idx + 1;
+  if (!Array.isArray(b.visits)) b.visits = [];
+});
+
+const save = () => { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} };
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const cnt = b => b.visits.reduce((a, v) => a + (Number(v.s) || 1), 0);
+const active = () => state.boards.find(b => !b.ended);
+
+// 커스텀 모달
+let modalResolver = null;
+function showModal(msg, {confirmMode = true, danger = false} = {}) {
+  return new Promise(resolve => {
+    modalResolver = resolve;
+    $("modalMsg").textContent = msg;
+    $("modalCancel").style.display = confirmMode ? "inline-block" : "none";
+    $("modalOk").className = "modal-ok" + (danger ? " danger" : "");
+    $("modalBackdrop").classList.add("open");
+  });
+}
+function closeModal(result) {
+  $("modalBackdrop").classList.remove("open");
+  if (modalResolver) {
+    const fn = modalResolver;
+    modalResolver = null;
+    fn(result);
+  }
+}
+$("modalOk").onclick = () => closeModal(true);
+$("modalCancel").onclick = () => closeModal(false);
+$("modalBackdrop").onclick = e => { if (e.target === $("modalBackdrop")) closeModal(false); };
+
+// 날짜 유틸 (월요일 휴관, 10/5 대체공휴일은 선택 허용)
+function parseDateStr(str) {
+  const [y, m, d] = str.split("-").map(Number);
+  return new Date(y, m - 1, d);
+}
+function formatDateStr(y, m, d) {
+  return `${y}-${String(m).padStart(2, "0")}-${String(d).padStart(2, "0")}`;
+}
+function isValidPlayDate(str) {
+  if (!str || str < MIN_DATE || str > MAX_DATE) return false;
+  if (str === "2026-10-05") return true;
+  const dow = parseDateStr(str).getDay();
+  return dow !== 1;
+}
+
+function populateValidDateSelect(selEl, selectedStr) {
+  let opts = "";
+  for (let m = 9; m <= 11; m++) {
+    const daysInMonth = new Date(2026, m, 0).getDate();
+    for (let d = 1; d <= daysInMonth; d++) {
+      const str = formatDateStr(2026, m, d);
+      if (!isValidPlayDate(str)) continue;
+      const dow = parseDateStr(str).getDay();
+      const hol = HOLIDAYS[str];
+      opts += `<option value="${str}" ${str === selectedStr ? "selected" : ""}>${str} (${DOW_KO[dow]})${hol ? " · " + hol : ""}</option>`;
+    }
+  }
+  selEl.innerHTML = opts;
+}
+
+const t = new Date();
+const todayStr = formatDateStr(t.getFullYear(), t.getMonth() + 1, t.getDate());
+let initialDate = isValidPlayDate(todayStr) ? todayStr : "2026-10-09";
+let calMonth = Number(initialDate.split("-")[1]);
+
+function setSelectedDate(str) {
+  if (!isValidPlayDate(str)) return;
+  $("fDate").value = str;
+  const dt = parseDateStr(str);
+  const dow = dt.getDay();
+  const hol = HOLIDAYS[str];
+  const colorStyle = (dow === 0 || hol) ? "color:var(--sun)" : (dow === 6) ? "color:var(--sat)" : "";
+  $("fDateLabel").innerHTML = `<span style="${colorStyle};font-weight:600">${str} (${DOW_KO[dow]})${hol ? ` · ${hol}` : ""}</span>`;
+  calMonth = dt.getMonth() + 1;
+  renderCalendar();
+}
+
+function renderCalendar() {
+  $("calTitle").textContent = `2026년 ${calMonth}월`;
+  $("calPrev").disabled = calMonth <= 9;
+  $("calNext").disabled = calMonth >= 11;
+
+  const selected = $("fDate").value;
+  const firstDow = new Date(2026, calMonth - 1, 1).getDay();
+  const daysInMonth = new Date(2026, calMonth, 0).getDate();
+
+  let html = DOW_KO.map((d, i) =>
+    `<div class="cal-dow ${i === 0 ? "sun" : i === 6 ? "sat" : ""}">${d}</div>`
+  ).join("");
+
+  for (let i = 0; i < firstDow; i++) {
+    html += `<div></div>`;
+  }
+
+  for (let d = 1; d <= daysInMonth; d++) {
+    const str = formatDateStr(2026, calMonth, d);
+    const dow = (firstDow + d - 1) % 7;
+    const isHol = Boolean(HOLIDAYS[str]);
+    const inRange = str >= MIN_DATE && str <= MAX_DATE;
+    const isBlockedMon = (dow === 1 && str !== "2026-10-05");
+    const disabled = !inRange || isBlockedMon;
+
+    const cls = [
+      "cal-day",
+      dow === 6 ? "sat" : "",
+      (dow === 0 || isHol) ? "sun hol" : "",
+      !inRange ? "out" : "",
+      str === selected ? "sel" : ""
+    ].filter(Boolean).join(" ");
+
+    const title = isBlockedMon ? "월요일 휴관" : (HOLIDAYS[str] || "");
+    html += `<button type="button" class="${cls}" data-day="${str}" ${disabled ? "disabled" : ""} title="${esc(title)}">${d}</button>`;
+  }
+
+  $("calGrid").innerHTML = html;
+}
+
+$("fDateBtn").onclick = e => {
+  e.stopPropagation();
+  $("calPop").classList.toggle("open");
+};
+$("calPop").onclick = e => e.stopPropagation();
+document.addEventListener("click", () => $("calPop").classList.remove("open"));
+
+$("calPrev").onclick = () => {
+  if (calMonth > 9) { calMonth--; renderCalendar(); }
+};
+$("calNext").onclick = () => {
+  if (calMonth < 11) { calMonth++; renderCalendar(); }
+};
+$("calGrid").onclick = e => {
+  const btn = e.target.closest("[data-day]");
+  if (btn && !btn.disabled) {
+    setSelectedDate(btn.dataset.day);
+    $("calPop").classList.remove("open");
+  }
+};
+
+// 보유 혜택 계산 (5회 달성 시 50% 할인권 +2매, 7회 달성 시 미니 실황 OST +1개)
+function getInventory() {
+  const inv = {
+    "50% 할인권": {claimed: 0, used: 0, adj: Number(state.manualAdj["50% 할인권"]) || 0, isCoupon: true},
+    "미니 실황 OST": {claimed: 0, used: 0, adj: Number(state.manualAdj["미니 실황 OST"]) || 0, isCoupon: false}
+  };
+  state.boards.forEach(b => {
+    const c = cnt(b);
+    if (c >= 5) inv["50% 할인권"].claimed += 2;
+    if (c >= 7) inv["미니 실황 OST"].claimed += 1;
+    b.visits.forEach(v => {
+      if (v.usedBenefit && inv[v.usedBenefit]) {
+        inv[v.usedBenefit].used++;
+      }
+    });
+  });
+  return inv;
+}
+
+// 각 도장 칸별 짧은 날짜(M.D 또는 MM.DD) 추출
+function getStampDates(board) {
+  const dates = [];
+  if (!board || !Array.isArray(board.visits)) return dates;
+  board.visits.forEach(v => {
+    const count = Number(v.s) || 1;
+    const raw = String(v.date || "").trim();
+    const shortDate = /^\d{4}-\d{2}-\d{2}$/.test(raw)
+      ? raw.slice(5).replace("-", ".")
+      : raw.replace("-", ".");
+    for (let k = 0; k < count; k++) {
+      if (dates.length < MAX) dates.push(shortDate);
+    }
+  });
+  return dates;
+}
+
+// 웹 화면 도장판 렌더링
+function stampsHTML(board, labels) {
+  const count = board ? cnt(board) : 0;
+  const stampDates = getStampDates(board);
+  let h = "";
+  for (let i = 1; i <= MAX; i++) {
+    const m = MILES.find(x => x.n === i);
+    const isOn = i <= count;
+    const theme = STAMP_THEMES[i - 1];
+    const dStr = stampDates[i - 1] || "";
+    const style = isOn ? `style="--env-bg:${theme.bg};--env-bd:${theme.bd}"` : "";
+    const inner = isOn
+      ? `<span class="st-icon">${theme.icon}</span>${dStr ? `<span class="st-date">${esc(dStr)}</span>` : ""}`
+      : `${i}`;
+    h += `<div class="st${isOn ? " on" : ""}${m ? " ms" : ""}" ${style}>${inner}${labels && m ? `<i>${m.l}</i>` : ""}</div>`;
+  }
+  return h;
+}
+
+function render() {
+  const cur = active();
+  const count = cur ? cnt(cur) : 0;
+  const total = state.boards.reduce((a, b) => a + b.visits.length, 0);
+  const next = MILES.find(m => m.n > count);
+  const inv = getInventory();
+
+  $("sCur").textContent = cur ? `${count} / ${MAX}` : "-";
+  $("sNext").textContent = !cur ? "새 카드 필요" : next ? `${next.n - count}개` : "달성 완료";
+  $("sTotal").textContent = `${total}회`;
+
+  $("invGrid").innerHTML = Object.entries(inv).map(([name, stat]) => {
+    if (!stat.isCoupon) {
+      const totalGot = Math.max(0, stat.claimed + stat.adj);
+      return `<div class="inv-box ${totalGot > 0 ? "has" : ""}">
+        <span>${name}</span>
+        <div class="inv-row">
+          <b>${totalGot}개 <small style="display:inline;font-weight:400">수령</small></b>
+          <div class="inv-ctrl">
+            <button type="button" class="inv-btn" data-inv="${esc(name)}" data-delta="-1" ${totalGot <= 0 ? "disabled" : ""} aria-label="수량 줄이기">-</button>
+            <button type="button" class="inv-btn" data-inv="${esc(name)}" data-delta="1" aria-label="수량 늘리기">+</button>
+          </div>
+        </div>
+        ${stat.adj !== 0 ? `<small>직접 조정 ${stat.adj > 0 ? "+" + stat.adj : stat.adj}개</small>` : `<small>7회차 달성 시 자동 추가</small>`}
+      </div>`;
+    }
+
+    const rem = Math.max(0, stat.claimed + stat.adj - stat.used);
+    return `<div class="inv-box ${rem > 0 ? "has" : ""}">
+      <span>${name} (5회차 달성 시 2매)</span>
+      <div class="inv-row">
+        <b>${rem}매 <small style="display:inline;font-weight:400">남음</small></b>
+        <div class="inv-ctrl">
+          <button type="button" class="inv-btn" data-inv="${esc(name)}" data-delta="-1" ${rem <= 0 ? "disabled" : ""} aria-label="수량 줄이기">-</button>
+          <button type="button" class="inv-btn" data-inv="${esc(name)}" data-delta="1" aria-label="수량 늘리기">+</button>
+        </div>
+      </div>
+      <small>총 지급 ${stat.claimed}매 · 사용 ${stat.used}매${stat.adj !== 0 ? ` · 조정 ${stat.adj > 0 ? "+" + stat.adj : stat.adj}` : ""}</small>
+    </div>`;
+  }).join("");
+
+  const prevSel = $("fUseBenefit").value;
+  let opts = `<option value="">사용 안 함</option>`;
+  Object.entries(inv).forEach(([name, stat]) => {
+    if (!stat.isCoupon) return;
+    const rem = Math.max(0, stat.claimed + stat.adj - stat.used);
+    if (rem > 0) {
+      opts += `<option value="${esc(name)}">${esc(name)} 1매 사용 (현재 ${rem}매 보유)</option>`;
+    }
+  });
+  $("fUseBenefit").innerHTML = opts;
+  if ([...$("fUseBenefit").options].some(o => o.value === prevSel)) {
+    $("fUseBenefit").value = prevSel;
+  }
+
+  $("curName").textContent = cur ? `도장판 #${cur.id}` : "진행 중인 도장판 없음";
+  $("curStamps").innerHTML = stampsHTML(cur, true);
+  $("bar").style.width = `${count / MAX * 100}%`;
+
+  $("msList").innerHTML = MILES.map(m => {
+    const isDone = count >= m.n;
+    return `<div class="ms-item ${isDone ? "done" : ""}">
+      <div>
+        <b>${m.n}회차 · ${m.t}</b><br>
+        <small>${m.s}</small>
+      </div>
+      <div class="ms-status">${isDone ? "✓ 수령 완료" : `${m.n - count}개 남음`}</div>
+    </div>`;
+  }).join("");
+
+  $("add").disabled = !cur;
+
+  $("boards").innerHTML = [...state.boards].reverse().map(b => {
+    const c = cnt(b);
+    const gotCnt = MILES.filter(m => c >= m.n).length;
+    const log = b.visits.map((v, i) =>
+      `<li>
+        <span>${i + 1}회${v.s === 2 ? '<em class="dbl">더블 +2</em>' : ""}${v.usedBenefit ? `<em class="used-tag">${esc(v.usedBenefit)} 사용</em>` : ""} · ${esc(v.date)}${v.round ? " · " + esc(v.round) : ""}${v.note ? " — " + esc(v.note) : ""}</span>
+        <span class="log-btns">
+          <button type="button" class="small edit" data-edit="${b.id}:${i}">수정</button>
+          <button type="button" class="small" data-del="${b.id}:${i}">삭제</button>
+        </span>
+      </li>`).join("");
+
+    const statusPills = MILES.map(m => {
+      const done = c >= m.n;
+      return `<span class="badge-pill ${done ? "done" : ""}">
+        ${m.n}회차(${m.l}) ${done ? "✓ 수령됨" : "미달성"}
+      </span>`;
+    }).join("");
+
+    const leftAction = !b.ended
+      ? `<button type="button" class="small" data-end="${b.id}">이 도장판 종료하기</button>`
+      : c < MAX
+        ? `<button type="button" class="ghost" data-open="${b.id}">이 도장판에 다시 적립하기</button>`
+        : `<span></span>`;
+
+    return `<div class="board${b.ended ? "" : " cur"}">
+      <div class="top"><b>〈연의 편지〉 도장판 #${b.id}</b><span class="tag">${b.ended ? "종료" : "진행 중"}</span></div>
+      <p class="meta">${c}/${MAX}개 적립 · 달성 단계 ${gotCnt}/${MILES.length}개</p>
+      <div class="stamps">${stampsHTML(b, false)}</div>
+      <div class="board-badges">${statusPills}</div>
+      ${log ? `<ul class="log">${log}</ul>` : ""}
+      <div class="board-actions">
+        ${leftAction}
+        <button type="button" class="small danger" data-delboard="${b.id}">이 도장판 삭제하기</button>
+      </div>
+    </div>`;
+  }).join("");
+}
+
+// 보유 혜택 수량 직접 조절 (- / +)
+$("invGrid").onclick = e => {
+  const btn = e.target.closest("[data-inv]");
+  if (!btn || btn.disabled) return;
+  const name = btn.dataset.inv;
+  const delta = Number(btn.dataset.delta) || 0;
+  const inv = getInventory();
+  const stat = inv[name];
+  if (!stat) return;
+
+  const currentVal = !stat.isCoupon
+    ? Math.max(0, stat.claimed + stat.adj)
+    : Math.max(0, stat.claimed + stat.adj - stat.used);
+
+  if (delta < 0 && currentVal <= 0) return;
+  state.manualAdj[name] = (Number(state.manualAdj[name]) || 0) + delta;
+  save();
+  render();
+};
+
+$("add").onclick = async () => {
+  const cur = active();
+  const date = $("fDate").value;
+  if (!cur) return;
+  if (!isValidPlayDate(date)) {
+    await showModal("관극 날짜를 먼저 선택해 주세요.", {confirmMode: false});
+    return;
+  }
+  const dbl = $("fDouble").checked;
+  const s = Math.min(dbl ? 2 : 1, MAX - cnt(cur));
+  const usedBenefit = $("fUseBenefit").value;
+  cur.visits.push({
+    date,
+    round: $("fRound").value.trim(),
+    note: $("fNote").value.trim(),
+    s,
+    usedBenefit
+  });
+  if (cnt(cur) >= MAX) cur.ended = true;
+  $("fRound").value = $("fNote").value = "";
+  $("fDouble").checked = false;
+  $("fUseBenefit").value = "";
+  save(); render();
+};
+
+// 관극 기록 수정 모달 로직
+let editingTarget = null;
+function openEditModal(boardId, visitIdx) {
+  const b = state.boards.find(x => x.id === boardId);
+  if (!b || !b.visits[visitIdx]) return;
+  const v = b.visits[visitIdx];
+  editingTarget = {boardId, visitIdx};
+
+  $("editModalTitle").textContent = `도장판 #${boardId} · ${visitIdx + 1}회차 기록 수정`;
+  populateValidDateSelect($("eDate"), v.date);
+  $("eRound").value = v.round || "";
+  $("eNote").value = v.note || "";
+  $("eDouble").checked = Number(v.s) === 2;
+
+  const inv = getInventory();
+  let opts = `<option value="">사용 안 함</option>`;
+  Object.entries(inv).forEach(([name, stat]) => {
+    if (!stat.isCoupon) return;
+    const rem = Math.max(0, stat.claimed + stat.adj - stat.used);
+    if (rem > 0 || v.usedBenefit === name) {
+      const label = v.usedBenefit === name
+        ? `${name} 1매 사용 (현재 선택됨)`
+        : `${name} 1매 사용 (현재 ${rem}매 보유)`;
+      opts += `<option value="${esc(name)}" ${v.usedBenefit === name ? "selected" : ""}>${esc(label)}</option>`;
+    }
+  });
+  $("eUseBenefit").innerHTML = opts;
+  $("editModalBackdrop").classList.add("open");
+}
+
+function closeEditModal() {
+  $("editModalBackdrop").classList.remove("open");
+  editingTarget = null;
+}
+
+$("editCancel").onclick = closeEditModal;
+$("editModalBackdrop").onclick = e => { if (e.target === $("editModalBackdrop")) closeEditModal(); };
+
+$("editSave").onclick = async () => {
+  if (!editingTarget) return;
+  const {boardId, visitIdx} = editingTarget;
+  const b = state.boards.find(x => x.id === boardId);
+  if (!b || !b.visits[visitIdx]) { closeEditModal(); return; }
+
+  const newDate = $("eDate").value;
+  if (!isValidPlayDate(newDate)) {
+    await showModal("올바른 관극 날짜를 선택해 주세요.", {confirmMode: false});
+    return;
+  }
+
+  const otherStamps = b.visits.reduce((sum, item, idx) => idx === visitIdx ? sum : sum + (Number(item.s) || 1), 0);
+  const wantStamps = $("eDouble").checked ? 2 : 1;
+  const finalStamps = Math.max(1, Math.min(wantStamps, MAX - otherStamps));
+
+  b.visits[visitIdx] = {
+    date: newDate,
+    round: $("eRound").value.trim(),
+    note: $("eNote").value.trim(),
+    s: finalStamps,
+    usedBenefit: $("eUseBenefit").value
+  };
+
+  if (cnt(b) >= MAX) b.ended = true;
+  save();
+  closeEditModal();
+  render();
+};
+
+$("newBoard").onclick = async () => {
+  const cur = active();
+  if (cur && !(await showModal("진행 중인 도장판을 종료하고 새 도장판을 시작할까요?"))) return;
+  if (cur) cur.ended = true;
+  const nextId = state.boards.length ? Math.max(...state.boards.map(b => b.id)) + 1 : 1;
+  state.boards.push({id: nextId, visits: [], ended: false});
+  save(); render();
+};
+
+// 기록 백업 (.json)
+$("btnExport").onclick = async () => {
+  try {
+    const dataStr = JSON.stringify(state, null, 2);
+    const blob = new Blob([dataStr], {type: "application/json"});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `yourletter-backup-${todayStr}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  } catch (e) {
+    await showModal("인앱 브라우저에서는 파일 다운로드가 제한될 수 있어요. 기본 브라우저에서 열어 백업해 주세요.", {confirmMode: false});
+  }
+};
+
+// 기록 불러오기
+$("btnImport").onclick = () => {
+  $("importFile").value = "";
+  $("importFile").click();
+};
+
+$("importFile").onchange = e => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = async ev => {
+    try {
+      const parsed = JSON.parse(ev.target.result);
+      if (!parsed || !Array.isArray(parsed.boards)) {
+        await showModal("올바른 〈연의 편지〉 백업 파일이 아닙니다.", {confirmMode: false});
+        return;
+      }
+      if (!(await showModal("백업 파일을 불러오면 현재 화면의 기록이 백업 데이터로 덮어씌워집니다. 계속할까요?"))) {
+        return;
+      }
+      if (!parsed.manualAdj || typeof parsed.manualAdj !== "object") {
+        parsed.manualAdj = {};
+      }
+      parsed.boards.forEach((b, idx) => {
+        if (!b.id) b.id = idx + 1;
+        if (!Array.isArray(b.visits)) b.visits = [];
+      });
+      state = parsed;
+      save();
+      render();
+      await showModal("관극 기록과 도장판을 성공적으로 복원했습니다!", {confirmMode: false});
+    } catch (err) {
+      await showModal("백업 파일을 읽는 중 오류가 발생했습니다.", {confirmMode: false});
+    }
+  };
+  reader.readAsText(file);
+};
+
+// 도장판 이미지 저장 (PNG)
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+$("btnSaveImg").onclick = async () => {
+  if (!state.boards.length) {
+    await showModal("저장할 도장판이 없습니다.", {confirmMode: false});
+    return;
+  }
+
+  const dpr = 2;
+  const W = 720;
+  const pad = 32;
+  const headerH = 152;
+  const cardH = 186;
+  const gap = 16;
+  const footerH = 44;
+  const boards = [...state.boards];
+  const totalStamps = boards.reduce((a, b) => a + cnt(b), 0);
+  const totalVisits = boards.reduce((a, b) => a + b.visits.length, 0);
+  const H = pad + headerH + 20 + boards.length * (cardH + gap) - gap + footerH + pad;
+
+  const canvas = document.createElement("canvas");
+  canvas.width = W * dpr;
+  canvas.height = H * dpr;
+  const ctx = canvas.getContext("2d");
+  ctx.scale(dpr, dpr);
+
+  ctx.fillStyle = "#f2f4f9";
+  ctx.fillRect(0, 0, W, H);
+
+  // 인디고 블루 표지 헤더
+  const grad = ctx.createLinearGradient(pad, pad, W - pad, pad + headerH);
+  grad.addColorStop(0, "#50689c");
+  grad.addColorStop(1, "#748ec2");
+  roundRect(ctx, pad, pad, W - pad * 2, headerH, 22);
+  ctx.fillStyle = grad;
+  ctx.fill();
+
+  ctx.setLineDash([5, 4]);
+  ctx.strokeStyle = "rgba(255,255,255,0.35)";
+  ctx.lineWidth = 1.5;
+  roundRect(ctx, pad + 8, pad + 8, W - pad * 2 - 16, headerH - 16, 16);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  ctx.fillStyle = "rgba(255,240,180,0.9)";
+  ctx.font = "15px sans-serif";
+  ctx.textAlign = "right";
+  ctx.fillText("✦ · ˚ ✧ ✉️", W - pad - 26, pad + 126);
+
+  ctx.textAlign = "left";
+  ctx.fillStyle = "rgba(255,255,255,0.88)";
+  ctx.font = "600 12px sans-serif";
+  ctx.fillText("✦ MUSICAL YOUR LETTER · STAMP CARD", pad + 26, pad + 34);
+
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 29px Georgia, serif";
+  ctx.fillText("뮤지컬 〈연의 편지〉", pad + 26, pad + 70);
+
+  ctx.fillStyle = "rgba(255,255,255,0.85)";
+  ctx.font = "italic 14px Georgia, serif";
+  ctx.fillText("your letter — 구석구석 걸어가 보다 다음 편지도 찾아줄래", pad + 26, pad + 94);
+
+  ctx.fillStyle = "rgba(255,255,255,0.94)";
+  ctx.font = "600 14px sans-serif";
+  ctx.fillText(`도장판 ${boards.length}장 · 총 관극 ${totalVisits}회 · 누적 도장 ${totalStamps}개`, pad + 26, pad + 126);
+
+  let y = pad + headerH + 20;
+  boards.forEach(b => {
+    const c = cnt(b);
+    const stampDates = getStampDates(b);
+
+    roundRect(ctx, pad, y, W - pad * 2, cardH, 18);
+    ctx.fillStyle = "#ffffff";
+    ctx.fill();
+    ctx.lineWidth = b.ended ? 1.5 : 2;
+    ctx.strokeStyle = b.ended ? "#dde2ed" : "#6f89bd";
+    ctx.stroke();
+
+    // 노트 줄선 & 왼쪽 세로선 표현
+    ctx.save();
+    roundRect(ctx, pad, y, W - pad * 2, cardH, 18);
+    ctx.clip();
+    ctx.strokeStyle = "rgba(203,213,225,0.45)";
+    ctx.lineWidth = 1;
+    for (let ly = y + 66; ly < y + cardH; ly += 24) {
+      ctx.beginPath();
+      ctx.moveTo(pad, ly);
+      ctx.lineTo(W - pad, ly);
+      ctx.stroke();
+    }
+    ctx.strokeStyle = "rgba(232,155,155,0.65)";
+    ctx.lineWidth = 1.5;
+    ctx.beginPath();
+    ctx.moveTo(pad + 14, y);
+    ctx.lineTo(pad + 14, y + cardH);
+    ctx.stroke();
+    ctx.restore();
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#222c42";
+    ctx.font = "bold 17px sans-serif";
+    ctx.fillText(`〈연의 편지〉 도장판 #${b.id}`, pad + 26, y + 34);
+
+    const statusText = b.ended ? "완료/종료" : "진행 중";
+    ctx.font = "bold 12px sans-serif";
+    const badgeW = 68;
+    roundRect(ctx, W - pad - 22 - badgeW, y + 17, badgeW, 24, 12);
+    ctx.fillStyle = b.ended ? "#f1f5f9" : "#edf1f9";
+    ctx.fill();
+    ctx.fillStyle = b.ended ? "#68748c" : "#566fa3";
+    ctx.textAlign = "center";
+    ctx.fillText(statusText, W - pad - 22 - badgeW / 2, y + 33);
+
+    ctx.textAlign = "left";
+    ctx.fillStyle = "#68748c";
+    ctx.font = "13px sans-serif";
+    ctx.fillText(`${c} / 7개 적립 · 5회차: 50% 할인권 2매 / 7회차: 미니 실황 OST`, pad + 26, y + 57);
+
+    const innerW = W - pad * 2 - 52;
+    const step = innerW / 7;
+    const boxW = 64;
+    const boxH = 68;
+    const topY = y + 76;
+
+    for (let i = 1; i <= 7; i++) {
+      const cx = pad + 26 + step * (i - 0.5);
+      const bx = cx - boxW / 2;
+      const isOn = i <= c;
+      const isMs = (i === 5 || i === 7);
+      const theme = STAMP_THEMES[i - 1];
+
+      roundRect(ctx, bx, topY, boxW, boxH, 13);
+      ctx.fillStyle = isOn ? theme.bg : "rgba(248,249,252,0.9)";
+      ctx.fill();
+
+      if (isMs) {
+        ctx.setLineDash([]);
+        ctx.lineWidth = 2.2;
+        ctx.strokeStyle = "#e5b95c";
+        ctx.stroke();
+      } else if (isOn) {
+        ctx.setLineDash([]);
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = theme.bd;
+        ctx.stroke();
+      } else {
+        ctx.setLineDash([4, 3]);
+        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = "#cbd5e1";
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      ctx.textAlign = "center";
+      if (isOn) {
+        const dateLabel = stampDates[i - 1] || "";
+        ctx.font = "19px sans-serif";
+        ctx.fillText(theme.icon, cx, dateLabel ? topY + 32 : topY + 41);
+
+        if (dateLabel) {
+          ctx.fillStyle = "#1e293b";
+          ctx.font = "bold 11px sans-serif";
+          ctx.fillText(dateLabel, cx, topY + 53);
+        }
+      } else {
+        ctx.fillStyle = "#68748c";
+        ctx.font = "600 14px sans-serif";
+        ctx.fillText(String(i), cx, topY + 40);
+      }
+
+      if (isMs) {
+        const label = i === 5 ? "50% 2매" : "미니 OST";
+        ctx.fillStyle = isOn ? "#2f7d5b" : "#68748c";
+        ctx.font = isOn ? "bold 11px sans-serif" : "11px sans-serif";
+        ctx.fillText(label, cx, topY + boxH + 16);
+      }
+    }
+
+    y += cardH + gap;
+  });
+
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#7b8a99";
+  ctx.font = "12px sans-serif";
+  ctx.fillText(`뮤지컬 〈연의 편지〉 · 저장일 ${todayStr}`, W / 2, H - pad - 8);
+
+  const dataUrl = canvas.toDataURL("image/png");
+  $("previewImg").src = dataUrl;
+  $("imgDownloadLink").href = dataUrl;
+  $("imgDownloadLink").download = `yourletter-stamps-${todayStr}.png`;
+  $("imgModalBackdrop").classList.add("open");
+
+  try {
+    const a = document.createElement("a");
+    a.href = dataUrl;
+    a.download = `yourletter-stamps-${todayStr}.png`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  } catch (e) {}
+};
+
+$("imgModalClose").onclick = () => $("imgModalBackdrop").classList.remove("open");
+$("imgModalBackdrop").onclick = e => { if (e.target === $("imgModalBackdrop")) $("imgModalBackdrop").classList.remove("open"); };
+
+$("boards").onclick = async e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  const d = btn.dataset;
+
+  if (d.edit) {
+    const [id, i] = d.edit.split(":").map(Number);
+    openEditModal(id, i);
+  }
+  if (d.del) {
+    const [id, i] = d.del.split(":").map(Number);
+    const b = state.boards.find(x => x.id === id);
+    if (b && await showModal("이 관극 기록을 삭제할까요?", {danger: true})) {
+      b.visits.splice(i, 1);
+      save(); render();
+    }
+  }
+  if (d.open) {
+    const b = state.boards.find(x => x.id === +d.open);
+    const cur = active();
+    const msg = cur
+      ? `진행 중인 도장판 #${cur.id}을(를) 종료하고 이 도장판에 이어서 적립할까요?`
+      : "이 도장판에 이어서 적립할까요?";
+    if (b && await showModal(msg)) {
+      if (cur) cur.ended = true;
+      b.ended = false;
+      save(); render();
+    }
+  }
+  if (d.end) {
+    const b = state.boards.find(x => x.id === +d.end);
+    if (b && await showModal("이 도장판을 종료할까요?")) {
+      b.ended = true;
+      save(); render();
+    }
+  }
+  if (d.delboard) {
+    const id = +d.delboard;
+    const idx = state.boards.findIndex(x => x.id === id);
+    if (idx !== -1 && await showModal(`〈연의 편지〉 도장판 #${id}을(를) 삭제할까요?\n이 카드에 찍힌 관극 기록과 수령 혜택도 모두 함께 삭제됩니다.`, {danger: true})) {
+      state.boards.splice(idx, 1);
+      save(); render();
+    }
+  }
+};
+
+setSelectedDate(initialDate);
+render();
+</script>
+</body>
+</html>
